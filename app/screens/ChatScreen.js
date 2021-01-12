@@ -19,11 +19,11 @@ class ChatScreen extends Component {
   }
 
   componentDidMount() {
-    Fire.get((message) =>
+    Fire.get((message) => {
       this.setState((previous) => ({
         messages: GiftedChat.append(previous.messages, message),
-      }))
-    );
+      }));
+    });
   }
 
   componentWillUnmount() {
@@ -49,8 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function (props) {
-  const navigation = useNavigation();
-
-  return <ChatScreen {...props} navigation={navigation}></ChatScreen>;
-}
+export default ChatScreen;

@@ -21,7 +21,10 @@ class Fire {
   };
 
   checkAuth = () => {
+    /**La primera vez devuelve null, por lo tanto entra en el if */
     firebase.auth().onAuthStateChanged((user) => {
+      console.log("onAuthStateChanged");
+      console.log(user.uid);
       if (!user) {
         firebase
           .auth()
